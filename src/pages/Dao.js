@@ -1,6 +1,13 @@
+import { useRouteLoaderData } from 'react-router-dom'
+import Authenticated from '../layout/Authenticated'
+
 function Dao() {
+  const { dao } = useRouteLoaderData('dao')
+
   return (
-    <span>Dao</span>
+    <Authenticated>
+      <h2>{dao.name}</h2>
+    </Authenticated>
   )
 }
 

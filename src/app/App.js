@@ -9,6 +9,7 @@ import RouteError from '../pages/RouteError'
 import Home from '../pages/Home'
 import Dao from '../pages/Dao'
 import Channel from '../pages/Channel'
+import daoLoader from '../loaders/dao'
 
 const { chains, publicClient } = configureChains(
   [
@@ -47,7 +48,9 @@ function App() {
                   element: <Home />,
                 },
                 {
+                  id: 'dao',
                   path: '/dao/:daoName',
+                  loader: daoLoader,
                   children: [
                     {
                       index: true,
