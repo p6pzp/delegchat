@@ -5,6 +5,7 @@ import { publicProvider } from 'wagmi/providers/public'
 import { hardhat } from 'viem/chains'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './Layout'
+import RouteError from '../pages/RouteError'
 import Home from '../pages/Home'
 import Dao from '../pages/Dao'
 import Channel from '../pages/Channel'
@@ -39,7 +40,7 @@ function App() {
             {
               path: '/',
               element: <Layout />,
-              errorElement: <span>Error</span>,
+              errorElement: <RouteError />,
               children: [
                 {
                   index: true,
