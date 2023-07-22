@@ -7,10 +7,14 @@
     "build": "react-scripts build"
   },
   "dependencies": {
+    "@rainbow-me/rainbowkit": "^1.0.7",
+    "@sismo-core/sismo-connect-react": "^0.0.20",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "viem": "^1.4.0",
+    "wagmi": "^1.3.9"
   },
   "eslintConfig": {
     "extends": [

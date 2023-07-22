@@ -1,6 +1,10 @@
+import Authenticated from '../layout/Authenticated'
+
 function Channel() {
   return (
-    <span>Channel</span>
+    <Authenticated>
+      <span>Channel</span>
+    </Authenticated>
   )
 }
 
