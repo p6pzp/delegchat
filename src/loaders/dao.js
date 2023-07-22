@@ -6,7 +6,6 @@ function daoLoader({ params }) {
   if (!dao) {
     throw json({ message: `DAO ${params?.daoName} not found` }, { status: 404 })
   }
-  console.debug('dao', { dao })
   return { dao }
 }
 
