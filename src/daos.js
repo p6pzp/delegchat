@@ -1,7 +1,7 @@
 const DAOS = [
   {
     name: 'aave',
-    groupId: '0xf0285dcfe412b24a6ac9a1c365b7b35d',
+    groupId: '0x5d26d7d7b237df2f5accad08b3753fbc',
   },
 ]
 
