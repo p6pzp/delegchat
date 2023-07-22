@@ -1,6 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './Layout'
 import Home from '../pages/Home'
+import Dao from '../pages/Dao'
+import Channel from '../pages/Channel'
 
 function App() {
   return (
