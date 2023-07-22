@@ -26,21 +26,17 @@ function Dao() {
         <SismoConnectButton
           config={{
             appId: process.env.REACT_APP_SISMO_APP_ID,
-            vault: {
-              impersonate: [
-                address,
-              ],
-            },
           }}
           auths={[
-            {
-              authType: 0, // AuthType.VAULT
-            },
             {
               authType: 3, // AuthType.EVM_ACCOUNT
             },
           ]}
-          claims={dao.claims}
+          claims={[
+            {
+              groupId: dao.groupId,
+            },
+          ]}
           signature={{ message: signMessage(address) }}
           onResponseBytes={(responseBytes) => setResponseBytes(responseBytes)}
           text="Mint a DelegNoun"
