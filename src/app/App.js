@@ -15,6 +15,19 @@ function App() {
               index: true,
               element: <Home />,
             },
+            {
+              path: '/dao/:daoName',
+              children: [
+                {
+                  index: true,
+                  element: <Dao />,
+                },
+                {
+                  path: 'channel/:channelId',
+                  element: <Channel />,
+                },
+              ],
+            },
           ],
         },
       ])}
