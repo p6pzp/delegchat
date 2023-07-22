@@ -1,0 +1,31 @@
+.loading {
+  position: relative;
+}
+
+.loading-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  transform: translateX(-6px) translateY(-6px);
+}
+
+.loading-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #6b583e;
+  border-color: #6b583e transparent #6b583e transparent;
+  animation: dual-ring 1.2s linear infinite;
+}
+
+@keyframes dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -5,6 +5,7 @@ import { publicProvider } from 'wagmi/providers/public'
 import { hardhat } from 'viem/chains'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './Layout'
+import Loading from '../components/Loading'
 import RouteError from '../pages/RouteError'
 import Home from '../pages/Home'
 import Dao from '../pages/Dao'
@@ -65,7 +66,7 @@ function App() {
               ],
             },
           ])}
-          fallbackElement={<span>Loading...</span>}
+          fallbackElement={<Loading />}
         />
       </RainbowKitProvider>
     </WagmiConfig>

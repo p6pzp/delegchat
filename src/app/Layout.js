@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useFetcher, useNavigation, Outlet } from 'react-router-dom'
+import Loading from '../components/Loading'
 
 function Layout() {
   const fetcher = useFetcher()
@@ -13,7 +14,7 @@ function Layout() {
 
   if (fetcher.state === 'loading' || navigation.state === 'loading') {
     return (
-      <span>Loading...</span>
+      <Loading />
     )
   }
 
