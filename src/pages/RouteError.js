@@ -4,7 +4,7 @@ function RouteError() {
   const error = useRouteError()
 
   return (
-    <span>Error: {error?.message || error?.data?.message || 'Unknown error'}</span>
+    <p>Error: {error?.message || error?.data?.message || 'Unknown error'}</p>
   )
 }
 

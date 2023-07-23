@@ -1,48 +1,70 @@
 import { useState } from 'react'
 import { useRouteLoaderData } from 'react-router-dom'
-import { useAccount } from 'wagmi'
-import { encodeAbiParameters } from 'viem'
-import { SismoConnectButton } from '@sismo-core/sismo-connect-react'
-import Authenticated from '../layout/Authenticated'
-
-const signMessage = (address) => encodeAbiParameters(
-  [{ type: 'address', name: 'delegateAddress' }],
-  [address]
-)
+import { useAccount, useNetwork } from 'wagmi'
+import DaoInfo from '../components/DaoInfo'
+import WalletConnect from '../components/WalletConnect'
+import SismoConnect from '../components/SismoConnect'
+import PickDelegatee from '../components/PickDelegatee'
+import MintDelegNoun from '../components/MintDelegNoun'
+import ErrorMessage from '../components/ErrorMessage'
 
 function Dao() {
   const { dao } = useRouteLoaderData('dao')
   const { address } = useAccount()
+  const { chain } = useNetwork()
 
+  const [delegateeAddress, setDelegateeAddress] = useState(null)
   const [responseBytes, setResponseBytes] = useState(null)
 
-  return (
-    <Authenticated>
-      <h2>{dao.name}</h2>
-      {responseBytes && (
-        <span>Yay!</span>
-      )}
-      {!responseBytes && (
-        <SismoConnectButton
-          config={{
-            appId: process.env.REACT_APP_SISMO_APP_ID,
-          }}
-          auths={[
-            {
-              authType: 3, // AuthType.EVM_ACCOUNT
-            },
-          ]}
-          claims={[
-            {
-              groupId: dao.groupId,
-            },
-          ]}
-          signature={{ message: signMessage(address) }}
-          onResponseBytes={(responseBytes) => setResponseBytes(responseBytes)}
-          text="Mint a DelegNoun"
+  if (!chain || !address) {
+    return (
+      <>
+        <DaoInfo dao={dao} />
+        <WalletConnect />
+      </>
+    )
+  }
+
+  if (!(chain.id in dao.contracts)) {
+    return (
+      <>
+        <DaoInfo dao={dao} />
+        <ErrorMessage
+          error={{ message: `Chain ${chain.name} not supported` }}
         />
-      )}
-    </Authenticated>
+      </>
+    )
+  }
+
+  return (
+    <>
+      <DaoInfo dao={dao} />
+      {responseBytes
+        ? (
+          <>
+            <PickDelegatee
+              daoName={dao.name}
+              delegatorAddress={address}
+              onDelegatee={setDelegateeAddress}
+            />
+            {delegateeAddress && (
+              <MintDelegNoun
+                contractAddress={dao.contracts[chain.id]}
+                groupId={dao.groupId}
+                delegateeAddress={delegateeAddress}
+                responseBytes={responseBytes}
+              />
+            )}
+          </>
+        )
+        : (
+          <SismoConnect
+            groupId={dao.groupId}
+            onResponseBytes={setResponseBytes}
+          />
+        )
+      }
+    </>
   )
 }
 
