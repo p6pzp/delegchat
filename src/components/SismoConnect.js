@@ -32,7 +32,7 @@ function SismoConnect({ onResponseBytes, groupId, text = 'Sismo connect' }) {
       }}
       auths={[
         {
-          authType: 3, // AuthType.EVM_ACCOUNT
+          authType: 0, // AuthType.VAULT
         },
       ]}
       claims={[
