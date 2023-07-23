@@ -4,7 +4,10 @@ function DaoCard({ dao }) {
   return (
     <>
       <h4>{dao.name}</h4>
-      <Link to={`/dao/${dao.name}`}>Enter</Link>
+      {dao.comingSoon
+        ? <span>Coming soon</span>
+        : <Link to={`/dao/${dao.name}`}>Open</Link>
+      }
     </>
   )
 }

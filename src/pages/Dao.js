@@ -25,6 +25,12 @@ function Dao() {
     )
   }
 
+  if (dao.comingSoon) {
+    return (
+      <DaoInfo dao={dao} />
+    )
+  }
+
   if (!(chain.id in dao.contracts)) {
     return (
       <>

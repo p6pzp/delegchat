@@ -10,6 +10,10 @@ const signMessage = (address) => encodeAbiParameters(
 function SismoConnect({ onResponseBytes, groupId, text = 'Sismo connect' }) {
   const { address } = useAccount()
 
+  if (!groupId) {
+    return null
+  }
+
   return (
     <SismoConnectButton
       config={{

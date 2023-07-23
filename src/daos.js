@@ -6,6 +6,18 @@ const DAOS = [
       31337: '0x5fbdb2315678afecb367f032d93f642f64180aa3',
     },
   },
+  {
+    name: 'ens',
+    comingSoon: true,
+  },
+  {
+    name: 'arbitrum',
+    comingSoon: true,
+  },
+  {
+    name: 'optimism',
+    comingSoon: true,
+  },
 ]
 
 export default DAOS
