@@ -1,0 +1,45 @@
+/* styles.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
+  
+  .content {
+    text-align: center;
+    border: 2px solid #000; /* Add a black border around the text */
+    padding: 75px; /* Add some padding to the text */
+    width: 700px;
+    border-radius: 3.25rem;
+    
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  a {
+    padding: 10px 20px;
+    background-color: #000; /* Black color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    background-color: #111; /* Slightly darker black on hover */
+  }
+  
+  /* Add this CSS to spread the text over multiple lines */
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.5;
+  }
+  
