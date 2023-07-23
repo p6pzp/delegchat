@@ -14,9 +14,10 @@ yarn local
 
 yarn local -deploy
 
+4. Open a delegchat terminal and type:
 
 yarn start
 
-4. fund your wallet (replace YOURWALLETADDRESS with your wallet address):
+5. fund your wallet (replace YOURWALLETADDRESS with your wallet address):
 
 yarn hardhat --network localhost dev-send-eth --eth 1 --address YOURWALLETADDRESS
