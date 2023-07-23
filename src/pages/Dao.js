@@ -43,7 +43,7 @@ function Dao() {
   }
 
   return (
-    <>
+    <div className='container'>
       <DaoInfo dao={dao} />
       {responseBytes
         ? (
@@ -71,7 +71,7 @@ function Dao() {
           />
         )
       }
-    </>
+    </div>
   )
 }
 

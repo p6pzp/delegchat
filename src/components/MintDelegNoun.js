@@ -1,6 +1,7 @@
 import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 import DelegNouns from '../contracts/DelegNouns.json'
 import ErrorMessage from '../components/ErrorMessage'
+import './MintDelegNoun.css'
 
 function MintDelegNoun({ responseBytes, delegateeAddress, groupId, chainId, contractAddress }) {
   const {
@@ -44,6 +45,7 @@ function MintDelegNoun({ responseBytes, delegateeAddress, groupId, chainId, cont
   }
 
   return (
+    
     <>
       <button disabled={!write} onClick={() => write?.()}>
         Mint DelegNoun

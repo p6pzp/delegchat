@@ -1,7 +1,7 @@
 function DaoInfo({ dao }) {
   return (
     <>
-      <h2>{dao.name}</h2>
+      <h1>{dao.name}</h1>
       {dao.comingSoon && <span>Coming soon</span>}
     </>
   )

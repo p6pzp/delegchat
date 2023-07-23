@@ -1,0 +1,46 @@
+/* MintDelegNoun.css */
+
+/* Container styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust this value if needed */
+  }
+  
+  /* Heading styles */
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Text styles */
+  p {
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  /* Bold text styles */
+  .bold-text {
+    font-weight: bold;
+  }
+  
+  /* Black button styles */
+  .black-button {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .black-button:disabled {
+    background-color: #333;
+    cursor: not-allowed;
+  }
+  
