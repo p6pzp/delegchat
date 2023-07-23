@@ -1,0 +1,50 @@
+.DaoCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Set a fixed width for each DAO item */
+  }
+  
+  .DaoCard img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-bottom: 20px; /* Add space between the logo and the name */
+  }
+  
+  .DaoCard h2 {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center; /* Center the name */
+  }
+  
+  .DaoCard a {
+    padding: 8px 16px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 30px; /* Add space between the button and the next item */
+    width: 100%;
+  }
+  
+  .DaoCard:nth-child(1) a {
+    background-color: green; /* Set light blue background for the 1st DAO item */
+  }
+  
+  .DaoCard:nth-child(2) a,
+  .DaoCard:nth-child(3) a,
+  .DaoCard:nth-child(4) a,
+  .DaoCard:nth-child(5) a {
+    background-color: lightgrey; /* Set light grey background for the 2nd to 5th DAO items */
+  }
+  
+  .DaoCard:last-child a {
+    background-color: black; /* Set black background for the last (6th) DAO item */
+  }
