@@ -8,6 +8,7 @@ import Layout from './Layout'
 import Loading from '../components/Loading'
 import RouteError from '../pages/RouteError'
 import Home from '../pages/Home'
+import Daos from '../pages/Daos'
 import Dao from '../pages/Dao'
 import Channel from '../pages/Channel'
 import daoLoader from '../loaders/dao'
@@ -62,6 +63,10 @@ function App() {
                       element: <Channel />,
                     },
                   ],
+                },
+                {
+                  path: '/daos',
+                  element: <Daos />,
                 },
               ],
             },
