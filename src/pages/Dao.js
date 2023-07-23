@@ -55,6 +55,7 @@ function Dao() {
             />
             {delegateeAddress && (
               <MintDelegNoun
+                chainId={chain.id}
                 contractAddress={dao.contracts[chain.id]}
                 groupId={dao.groupId}
                 delegateeAddress={delegateeAddress}
