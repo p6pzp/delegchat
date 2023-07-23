@@ -1,9 +1,11 @@
+import { useEffect } from 'react'
 import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 import DelegNouns from '../contracts/DelegNouns.json'
 import ErrorMessage from '../components/ErrorMessage'
+import Loading from '../components/Loading'
 import './MintDelegNoun.css'
 
-function MintDelegNoun({ responseBytes, delegateeAddress, groupId, chainId, contractAddress }) {
+function MintDelegNoun({ responseBytes, delegateeAddress, groupId, chainId, contractAddress, onTransaction }) {
   const {
     isError: prepareIsError,
     error: prepareError,
@@ -28,6 +30,15 @@ function MintDelegNoun({ responseBytes, delegateeAddress, groupId, chainId, cont
     reset,
   } = useContractWrite(config)
 
+  useEffect(
+    () => {
+      if (isSuccess && data?.hash) {
+        onTransaction(data.hash)
+      }
+    },
+    [data, isSuccess, onTransaction]
+  )
+
   if (!delegateeAddress) {
     return null
   }
@@ -45,13 +56,10 @@ function MintDelegNoun({ responseBytes, delegateeAddress, groupId, chainId, cont
   }
 
   return (
-    
     <>
-      <button disabled={!write} onClick={() => write?.()}>
-        Mint DelegNoun
+      <button className='black-button' disabled={!write || isLoading} onClick={() => write?.()}>
+        {isLoading ? <Loading /> : 'Mint DelegNoun'}
       </button>
-      {isLoading && <p>Check wallet</p>}
-      {isSuccess && <p>Transaction: {JSON.stringify(data)}</p>}
     </>
   )
 }

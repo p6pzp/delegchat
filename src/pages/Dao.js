@@ -6,6 +6,7 @@ import WalletConnect from '../components/WalletConnect'
 import SismoConnect from '../components/SismoConnect'
 import PickDelegatee from '../components/PickDelegatee'
 import MintDelegNoun from '../components/MintDelegNoun'
+import MintingDelegNoun from '../components/MintingDelegNoun'
 import ErrorMessage from '../components/ErrorMessage'
 
 function Dao() {
@@ -15,6 +16,7 @@ function Dao() {
 
   const [delegateeAddress, setDelegateeAddress] = useState(null)
   const [responseBytes, setResponseBytes] = useState(null)
+  const [transactionHash, setTransactionHash] = useState(null)
 
   if (!chain || !address) {
     return (
@@ -53,13 +55,22 @@ function Dao() {
               delegatorAddress={address}
               onDelegatee={setDelegateeAddress}
             />
-            {delegateeAddress && (
+            {delegateeAddress && !transactionHash && (
               <MintDelegNoun
                 chainId={chain.id}
                 contractAddress={dao.contracts[chain.id]}
                 groupId={dao.groupId}
                 delegateeAddress={delegateeAddress}
                 responseBytes={responseBytes}
+                onTransaction={setTransactionHash}
+              />
+            )}
+            {delegateeAddress && transactionHash && (
+              <MintingDelegNoun
+                chainId={chain.id}
+                transactionHash={transactionHash}
+                daoName={dao.name}
+                delegateeAddress={delegateeAddress}
               />
             )}
           </>
