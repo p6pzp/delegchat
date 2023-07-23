@@ -13,7 +13,7 @@ export async function getDelegatee(daoName, delegator) {
 
   const { data } = await response.json()
 
-  if (!data.tokenholders || !data.tokenholders.length || !data.tokenholders[0].delegatingHistories.length) {
+  if (!data?.tokenholders || !data.tokenholders.length || !data.tokenholders[0].delegatingHistories.length) {
     throw json({ message: `Delegatee at ${daoName} from ${delegator} wrong response` })
   }
 
