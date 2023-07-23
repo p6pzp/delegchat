@@ -1,0 +1,84 @@
+/* App.css */
+
+.Header {
+    padding: 20px;
+    background-color: #f0f0f0;
+    text-align: center; /* Center the text */
+  }
+  
+  
+  
+  .ChatHistory {
+    max-height: 300px; /* Set a maximum height for the chat history box */
+    overflow-y: auto; /* Add scroll functionality when messages exceed the height */
+    padding: 10px;
+    margin: 20px 0;
+  }
+  
+  .SentMessage {
+    background-color: #e0e0e0; /* Light grey */
+    padding: 5px 10px;
+    border-radius: 10px;
+    align-self: flex-end;
+    margin-bottom: 5px;
+  }
+  
+  .ReceivedMessage {
+    background-color: #777777; /* Dark grey */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    align-self: flex-start;
+    margin-bottom: 5px;
+  }
+  
+  .MessageSender {
+    font-weight: bold;
+  }
+  
+  
+  .InputContainer {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Add this line to center the items horizontally */
+  }
+  
+  .InputContainer input {
+    padding: 10px;
+    font-size: 16px;
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f0f0f0; /* Very light grey */
+    color: #333; /* Dark grey text color for better contrast */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ddd; /* Slightly darker grey on hover */
+  }
+  
+  
+  
+  
